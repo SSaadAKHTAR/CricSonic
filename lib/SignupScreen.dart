@@ -1,29 +1,29 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'MainScreen.dart';
-import 'SignupScreen.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignupScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> _login(BuildContext context) async {
+  Future<void> _signup(BuildContext context) async {
     try {
-      // Authenticate with Firebase
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      // Create a new user with Firebase
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
 
-      // Navigate to MainScreen on successful login
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
-      );
-    } on FirebaseAuthException catch (e) {
-      // Show error message on login failure
+      // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.message ?? "Login failed")),
+        SnackBar(content: Text("Signup successful! Please log in.")),
+      );
+
+      // Navigate back to LoginScreen
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // Show error message on signup failure
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? "Signup failed")),
       );
     }
   }
@@ -37,10 +37,10 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.sports_cricket, size: 120, color: Colors.white),
+            Icon(Icons.person_add, size: 120, color: Colors.white),
             SizedBox(height: 20),
             Text(
-              "Please Login to Continue",
+              "Create an Account",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class LoginScreen extends StatelessWidget {
             ),
             SizedBox(height: 40),
             ElevatedButton(
-              onPressed: () => _login(context),
+              onPressed: () => _signup(context),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
@@ -95,25 +95,7 @@ class LoginScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: Text("Login", style: TextStyle(color: Colors.black)),
-            ),
-            SizedBox(height: 20),
-            GestureDetector(
-              onTap: () {
-                // Navigate to SignupScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignupScreen()),
-                );
-              },
-              child: Text(
-                "Don't have an account? Sign up",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
+              child: Text("Sign Up", style: TextStyle(color: Colors.black)),
             ),
           ],
         ),

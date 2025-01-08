@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "570583090389",
+    "project_id": "lappy-fc381",
+    "storage_bucket": "lappy-fc381.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570583090389:android:188277d345720db633ce5c",
+        "android_client_info": {
+          "package_name": "com.cricson"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_SvXFc0EWGrjUqQY_KljHTyyVO0F7Mk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570583090389:android:4b87be4d4f8b39b833ce5c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_applicati"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_SvXFc0EWGrjUqQY_KljHTyyVO0F7Mk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570583090389:android:c0918aa6aef27e2f33ce5c",
+        "android_client_info": {
+          "package_name": "com.flutter_appliction_1.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_SvXFc0EWGrjUqQY_KljHTyyVO0F7Mk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
